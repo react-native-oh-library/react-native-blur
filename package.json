@@ -1,7 +1,10 @@
 {
-  "name": "@react-native-community/blur",
-  "version": "4.3.2",
+  "name": "@react-native-oh-library/blur",
+  "version": "4.3.2-0.0.1",
   "description": "React Native Blur component",
+  "harmony": {
+    "alias": "@react-native-community/blur"
+  },
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -11,6 +14,8 @@
     "src",
     "lib",
     "android",
+    "harmony",
+    "harmony/blur.har",
     "ios",
     "cpp",
     "react-native-blur.podspec",
@@ -24,7 +29,8 @@
   "scripts": {
     "test": "jest",
     "typescript": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
+    "lint": "npx eslint src",
+    "lint:fix": "npx eslint src --fix",
     "prepare": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
@@ -33,9 +39,13 @@
   "keywords": [
     "react-native",
     "ios",
+    "harmony",
     "android"
   ],
-  "repository": "https://github.com/react-native-community/react-native-blur",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/react-native-oh-library/blur.git"
+  },
   "author": "Alexey Kureev <kureev-mail@ya.ru> (https://github.com/Kureev)",
   "license": "MIT",
   "bugs": {
@@ -43,7 +53,7 @@
   },
   "homepage": "https://github.com/react-native-community/react-native-blur",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.7",

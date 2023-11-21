@@ -34,6 +34,6 @@ interface NativeProps extends ViewProps {
   reducedTransparencyFallbackColor?: ColorValue;
 }
 
-export default codegenNativeComponent<NativeProps>('BlurView', {
-  excludedPlatforms: ['android'],
-}) as HostComponent<NativeProps>;
+export default codegenNativeComponent<NativeProps>(
+  'BlurView'
+) as HostComponent<NativeProps>;

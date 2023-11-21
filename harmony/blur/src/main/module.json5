@@ -1,0 +1,7 @@
+{
+  module: {
+    name: 'blur',
+    type: 'har',
+    deviceTypes: ['default'],
+  },
+}
