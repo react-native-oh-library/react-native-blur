@@ -31,7 +31,7 @@ namespace react {
 
     BlurViewProps::BlurViewProps(const PropsParserContext &context, const BlurViewProps &sourceProps, const RawProps &rawProps)
         : ViewProps(context, sourceProps, rawProps),
-          blurType(convertRawProp(context, rawProps, "blurType", sourceProps.blurType, {BlurType::Light})),
+          blurType(convertRawProp(context, rawProps, "blurType", sourceProps.blurType, {HarmonyBlurViewBlurType::Dark})),
           blurAmount(convertRawProp(context, rawProps, "blurAmount", sourceProps.blurAmount, {10})) {}
 } // namespace react
 } // namespace facebook

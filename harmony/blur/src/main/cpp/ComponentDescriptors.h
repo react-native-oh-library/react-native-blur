@@ -33,7 +33,7 @@ namespace facebook
 {
   namespace react
   {
-    JSI_EXPORT extern const char BlurViewComponentName[] = "BlurView";
+    JSI_EXPORT extern const char BlurViewComponentName[] = "HarmonyBlurView";
     using BlurViewShadowNode = ConcreteViewShadowNode<BlurViewComponentName, BlurViewProps>;
     using BlurViewComponentDescriptor = ConcreteComponentDescriptor<BlurViewShadowNode>;
   } // namespace react

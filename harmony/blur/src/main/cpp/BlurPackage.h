@@ -22,6 +22,8 @@
  * SOFTWARE.
  */
 
+#pragma once
+
 #include "RNOH/Package.h"
 #include "ComponentDescriptors.h"
 #include "JSIBinder.h"
@@ -44,12 +46,12 @@ namespace rnoh
 
     ComponentNapiBinderByString createComponentNapiBinderByName() override
     {
-      return {{"BlurView", std::make_shared<BlurNapiBinder>()}};
+      return {{"HarmonyBlurView", std::make_shared<BlurNapiBinder>()}};
     }
 
     ComponentJSIBinderByString createComponentJSIBinderByName() override
     {
-      return {{"BlurView", std::make_shared<BlurJSIBinder>()}};
+      return {{"HarmonyBlurView", std::make_shared<BlurJSIBinder>()}};
     }
   };
 } // namespace rnoh

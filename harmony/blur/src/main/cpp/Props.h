@@ -32,164 +32,60 @@ namespace facebook
 {
   namespace react
   {
-    enum class BlurType {
+    enum class HarmonyBlurViewBlurType {
         Dark,
         Light,
-        Xlight,
-        Prominent,
-        Regular,
-        ExtraDark,
-        ChromeMaterial,
-        Material,
-        ThickMaterial,
-        ThinMaterial,
-        UltraThinMaterial,
-        ChromeMaterialDark,
-        MaterialDark,
         ThickMaterialDark,
         ThinMaterialDark,
-        UltraThinMaterialDark,
-        ChromeMaterialLight,
-        MaterialLight,
         ThickMaterialLight,
-        ThinMaterialLight,
-        UltraThinMaterialLight
+        ThinMaterialLight
     };
 
+
     static inline void fromRawValue(const PropsParserContext &context, const RawValue &value,
-                                    BlurType &result) {
+                                    HarmonyBlurViewBlurType &result) {
         auto string = (std::string)value;
         if (string == "dark") {
-            result = BlurType::Dark;
+            result = HarmonyBlurViewBlurType::Dark;
             return;
         }
         if (string == "light") {
-            result = BlurType::Light;
-            return;
-        }
-        if (string == "xlight") {
-            result = BlurType::Xlight;
-            return;
-        }
-        if (string == "prominent") {
-            result = BlurType::Prominent;
-            return;
-        }
-        if (string == "regular") {
-            result = BlurType::Regular;
-            return;
-        }
-        if (string == "extraDark") {
-            result = BlurType::ExtraDark;
-            return;
-        }
-        if (string == "chromeMaterial") {
-            result = BlurType::ChromeMaterial;
-            return;
-        }
-        if (string == "material") {
-            result = BlurType::Material;
-            return;
-        }
-        if (string == "thickMaterial") {
-            result = BlurType::ThickMaterial;
-            return;
-        }
-        if (string == "thinMaterial") {
-            result = BlurType::ThinMaterial;
-            return;
-        }
-        if (string == "ultraThinMaterial") {
-            result = BlurType::UltraThinMaterial;
-            return;
-        }
-        if (string == "chromeMaterialDark") {
-            result = BlurType::ChromeMaterialDark;
-            return;
-        }
-        if (string == "materialDark") {
-            result = BlurType::MaterialDark;
+            result = HarmonyBlurViewBlurType::Light;
             return;
         }
         if (string == "thickMaterialDark") {
-            result = BlurType::ThickMaterialDark;
+            result = HarmonyBlurViewBlurType::ThickMaterialDark;
             return;
         }
         if (string == "thinMaterialDark") {
-            result = BlurType::ThinMaterialDark;
-            return;
-        }
-        if (string == "ultraThinMaterialDark") {
-            result = BlurType::UltraThinMaterialDark;
-            return;
-        }
-        if (string == "chromeMaterialLight") {
-            result = BlurType::ChromeMaterialLight;
-            return;
-        }
-        if (string == "materialLight") {
-            result = BlurType::MaterialLight;
+            result = HarmonyBlurViewBlurType::ThinMaterialDark;
             return;
         }
         if (string == "thickMaterialLight") {
-            result = BlurType::ThickMaterialLight;
+            result = HarmonyBlurViewBlurType::ThickMaterialLight;
             return;
         }
         if (string == "thinMaterialLight") {
-            result = BlurType::ThinMaterialLight;
-            return;
-        }
-        if (string == "ultraThinMaterialLight") {
-            result = BlurType::UltraThinMaterialLight;
+            result = HarmonyBlurViewBlurType::ThinMaterialLight;
             return;
         }
         abort();
     }
 
-    static inline std::string toString(const BlurType &value) {
+    static inline std::string toString(const HarmonyBlurViewBlurType &value) {
         switch (value) {
-        case BlurType::Dark:
+        case HarmonyBlurViewBlurType::Dark:
             return "dark";
-        case BlurType::Light:
+        case HarmonyBlurViewBlurType::Light:
             return "light";
-        case BlurType::Xlight:
-            return "xlight";
-        case BlurType::Prominent:
-            return "prominent";
-        case BlurType::Regular:
-            return "regular";
-        case BlurType::ExtraDark:
-            return "extraDark";
-        case BlurType::ChromeMaterial:
-            return "chromeMaterial";
-        case BlurType::Material:
-            return "material";
-        case BlurType::ThickMaterial:
-            return "thickMaterial";
-        case BlurType::ThinMaterial:
-            return "thinMaterial";
-        case BlurType::UltraThinMaterial:
-            return "ultraThinMaterial";
-        case BlurType::ChromeMaterialDark:
-            return "chromeMaterialDark";
-        case BlurType::MaterialDark:
-            return "materialDark";
-        case BlurType::ThickMaterialDark:
+        case HarmonyBlurViewBlurType::ThickMaterialDark:
             return "thickMaterialDark";
-        case BlurType::ThinMaterialDark:
+        case HarmonyBlurViewBlurType::ThinMaterialDark:
             return "thinMaterialDark";
-        case BlurType::UltraThinMaterialDark:
-            return "ultraThinMaterialDark";
-        case BlurType::ChromeMaterialLight:
-            return "chromeMaterialLight";
-        case BlurType::MaterialLight:
-            return "materialLight";
-        case BlurType::ThickMaterialLight:
+        case HarmonyBlurViewBlurType::ThickMaterialLight:
             return "thickMaterialLight";
-        case BlurType::ThinMaterialLight:
+        case HarmonyBlurViewBlurType::ThinMaterialLight:
             return "thinMaterialLight";
-        case BlurType::UltraThinMaterialLight:
-            return "ultraThinMaterialLight";
         }
     }
 
@@ -200,7 +96,7 @@ namespace facebook
       BlurViewProps(const PropsParserContext &context, const BlurViewProps &sourceProps, const RawProps &rawProps);
 
 #pragma mark - Props
-      BlurType blurType{BlurType::Light};
+      HarmonyBlurViewBlurType blurType{HarmonyBlurViewBlurType::Dark};
       int blurAmount{10};
     };
 

@@ -30,14 +30,14 @@ import {
 } from 'rnoh'
 import Logger from './Logger'
 
-export const BLUR_TYPE: string = "BlurView"
-const TAG: string = "[RNOH] BlurView"
+export const BLUR_TYPE: string = "HarmonyBlurView"
+const TAG: string = "[RNOH] HarmonyBlurView"
 
 export interface BlurProps extends ViewBaseProps {
   blurType:string
   blurAmount:number
 }
-export type BlurDescriptor = Descriptor<"BlurView", BlurProps>
+export type BlurDescriptor = Descriptor<"HarmonyBlurView", BlurProps>
 @Component
 export struct BlurView {
   ctx!: RNOHContext
@@ -60,10 +60,10 @@ export struct BlurView {
   }
 
   getColorMode(blurType:string):ThemeColorMode {
-    if (blurType.toLowerCase().endsWith('dark')){
-      return ThemeColorMode.DARK
+    if (blurType.toLowerCase().endsWith('light')){
+      return ThemeColorMode.LIGHT
     }
-    return ThemeColorMode.LIGHT
+    return ThemeColorMode.DARK
   }
 
   getBlurType(blurType:string):BlurStyle {
