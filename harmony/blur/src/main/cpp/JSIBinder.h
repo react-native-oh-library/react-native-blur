@@ -25,8 +25,7 @@
 
 #include "RNOHCorePackage/ComponentBinders/ViewComponentJSIBinder.h"
 
-namespace rnoh
-{
+namespace rnoh {
   class BlurJSIBinder : public ViewComponentJSIBinder
   {
     facebook::jsi::Object createNativeProps(facebook::jsi::Runtime &rt) override
