@@ -29,8 +29,7 @@
 #include "JSIBinder.h"
 #include "NapiBinder.h"
 
-namespace rnoh
-{
+namespace rnoh {
 
   class BlurPackage : public Package
   {

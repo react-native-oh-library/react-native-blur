@@ -1,4 +1,3 @@
-
 /**
  * MIT License
  *
@@ -29,12 +28,10 @@
 #include <jsi/jsi.h>
 #include <react/renderer/core/ConcreteComponentDescriptor.h>
 
-namespace facebook
-{
-  namespace react
-  {
+namespace facebook {
+namespace react {
     JSI_EXPORT extern const char BlurViewComponentName[] = "HarmonyBlurView";
     using BlurViewShadowNode = ConcreteViewShadowNode<BlurViewComponentName, BlurViewProps>;
     using BlurViewComponentDescriptor = ConcreteComponentDescriptor<BlurViewShadowNode>;
-  } // namespace react
+} // namespace react
 } // namespace facebook

@@ -1,4 +1,3 @@
-
 /**
  * MIT License
  *
@@ -28,66 +27,62 @@
 #include <react/renderer/components/view/ViewProps.h>
 #include <react/renderer/core/PropsParserContext.h>
 
-namespace facebook
-{
-  namespace react
-  {
-    enum class HarmonyBlurViewBlurType {
-        Dark,
-        Light,
-        ThickMaterialDark,
-        ThinMaterialDark,
-        ThickMaterialLight,
-        ThinMaterialLight
-    };
+namespace facebook {
+namespace react {
+    
+enum class BlurViewBlurType { Dark, Light, Xlight, Prominent, Regular, ExtraDark, ChromeMaterial, Material, ThickMaterial, ThinMaterial, UltraThinMaterial, ChromeMaterialDark, MaterialDark, ThickMaterialDark, ThinMaterialDark, UltraThinMaterialDark, ChromeMaterialLight, MaterialLight, ThickMaterialLight, ThinMaterialLight, UltraThinMaterialLight };
 
+static inline void fromRawValue(const PropsParserContext& context, const RawValue &value, BlurViewBlurType &result) {
+  auto string = (std::string)value;
+  if (string == "dark") { result = BlurViewBlurType::Dark; return; }
+  if (string == "light") { result = BlurViewBlurType::Light; return; }
+  if (string == "xlight") { result = BlurViewBlurType::Xlight; return; }
+  if (string == "prominent") { result = BlurViewBlurType::Prominent; return; }
+  if (string == "regular") { result = BlurViewBlurType::Regular; return; }
+  if (string == "extraDark") { result = BlurViewBlurType::ExtraDark; return; }
+  if (string == "chromeMaterial") { result = BlurViewBlurType::ChromeMaterial; return; }
+  if (string == "material") { result = BlurViewBlurType::Material; return; }
+  if (string == "thickMaterial") { result = BlurViewBlurType::ThickMaterial; return; }
+  if (string == "thinMaterial") { result = BlurViewBlurType::ThinMaterial; return; }
+  if (string == "ultraThinMaterial") { result = BlurViewBlurType::UltraThinMaterial; return; }
+  if (string == "chromeMaterialDark") { result = BlurViewBlurType::ChromeMaterialDark; return; }
+  if (string == "materialDark") { result = BlurViewBlurType::MaterialDark; return; }
+  if (string == "thickMaterialDark") { result = BlurViewBlurType::ThickMaterialDark; return; }
+  if (string == "thinMaterialDark") { result = BlurViewBlurType::ThinMaterialDark; return; }
+  if (string == "ultraThinMaterialDark") { result = BlurViewBlurType::UltraThinMaterialDark; return; }
+  if (string == "chromeMaterialLight") { result = BlurViewBlurType::ChromeMaterialLight; return; }
+  if (string == "materialLight") { result = BlurViewBlurType::MaterialLight; return; }
+  if (string == "thickMaterialLight") { result = BlurViewBlurType::ThickMaterialLight; return; }
+  if (string == "thinMaterialLight") { result = BlurViewBlurType::ThinMaterialLight; return; }
+  if (string == "ultraThinMaterialLight") { result = BlurViewBlurType::UltraThinMaterialLight; return; }
+  abort();
+}
 
-    static inline void fromRawValue(const PropsParserContext &context, const RawValue &value,
-                                    HarmonyBlurViewBlurType &result) {
-        auto string = (std::string)value;
-        if (string == "dark") {
-            result = HarmonyBlurViewBlurType::Dark;
-            return;
-        }
-        if (string == "light") {
-            result = HarmonyBlurViewBlurType::Light;
-            return;
-        }
-        if (string == "thickMaterialDark") {
-            result = HarmonyBlurViewBlurType::ThickMaterialDark;
-            return;
-        }
-        if (string == "thinMaterialDark") {
-            result = HarmonyBlurViewBlurType::ThinMaterialDark;
-            return;
-        }
-        if (string == "thickMaterialLight") {
-            result = HarmonyBlurViewBlurType::ThickMaterialLight;
-            return;
-        }
-        if (string == "thinMaterialLight") {
-            result = HarmonyBlurViewBlurType::ThinMaterialLight;
-            return;
-        }
-        abort();
-    }
-
-    static inline std::string toString(const HarmonyBlurViewBlurType &value) {
-        switch (value) {
-        case HarmonyBlurViewBlurType::Dark:
-            return "dark";
-        case HarmonyBlurViewBlurType::Light:
-            return "light";
-        case HarmonyBlurViewBlurType::ThickMaterialDark:
-            return "thickMaterialDark";
-        case HarmonyBlurViewBlurType::ThinMaterialDark:
-            return "thinMaterialDark";
-        case HarmonyBlurViewBlurType::ThickMaterialLight:
-            return "thickMaterialLight";
-        case HarmonyBlurViewBlurType::ThinMaterialLight:
-            return "thinMaterialLight";
-        }
-    }
+static inline std::string toString(const BlurViewBlurType &value) {
+  switch (value) {
+    case BlurViewBlurType::Dark: return "dark";
+    case BlurViewBlurType::Light: return "light";
+    case BlurViewBlurType::Xlight: return "xlight";
+    case BlurViewBlurType::Prominent: return "prominent";
+    case BlurViewBlurType::Regular: return "regular";
+    case BlurViewBlurType::ExtraDark: return "extraDark";
+    case BlurViewBlurType::ChromeMaterial: return "chromeMaterial";
+    case BlurViewBlurType::Material: return "material";
+    case BlurViewBlurType::ThickMaterial: return "thickMaterial";
+    case BlurViewBlurType::ThinMaterial: return "thinMaterial";
+    case BlurViewBlurType::UltraThinMaterial: return "ultraThinMaterial";
+    case BlurViewBlurType::ChromeMaterialDark: return "chromeMaterialDark";
+    case BlurViewBlurType::MaterialDark: return "materialDark";
+    case BlurViewBlurType::ThickMaterialDark: return "thickMaterialDark";
+    case BlurViewBlurType::ThinMaterialDark: return "thinMaterialDark";
+    case BlurViewBlurType::UltraThinMaterialDark: return "ultraThinMaterialDark";
+    case BlurViewBlurType::ChromeMaterialLight: return "chromeMaterialLight";
+    case BlurViewBlurType::MaterialLight: return "materialLight";
+    case BlurViewBlurType::ThickMaterialLight: return "thickMaterialLight";
+    case BlurViewBlurType::ThinMaterialLight: return "thinMaterialLight";
+    case BlurViewBlurType::UltraThinMaterialLight: return "ultraThinMaterialLight";
+  }
+}
 
     class JSI_EXPORT BlurViewProps final : public ViewProps
     {
@@ -96,9 +91,9 @@ namespace facebook
       BlurViewProps(const PropsParserContext &context, const BlurViewProps &sourceProps, const RawProps &rawProps);
 
 #pragma mark - Props
-      HarmonyBlurViewBlurType blurType{HarmonyBlurViewBlurType::Dark};
+      BlurViewBlurType blurType{BlurViewBlurType::Dark};
       int blurAmount{10};
     };
 
-  } // namespace react
+} // namespace react
 } // namespace facebook

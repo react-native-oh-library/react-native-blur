@@ -26,8 +26,7 @@
 #include "RNOHCorePackage/ComponentBinders/ViewComponentNapiBinder.h"
 #include "Props.h"
 
-namespace rnoh
-{
+namespace rnoh {
   class BlurNapiBinder : public ViewComponentNapiBinder
   {
   public:
