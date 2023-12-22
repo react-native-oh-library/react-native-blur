@@ -1,6 +1,6 @@
 {
   "name": "@react-native-oh-library/blur",
-  "version": "4.3.2-0.0.5",
+  "version": "4.3.2-0.0.6",
   "description": "React Native Blur component",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -50,7 +50,8 @@
   },
   "homepage": "https://github.com/react-native-community/react-native-blur",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "devDependencies": {
     "@arkweid/lefthook": "^0.7.7",
