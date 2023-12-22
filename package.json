@@ -1,5 +1,5 @@
 {
-  "name": "@react-native-oh-library/blur",
+  "name": "@react-native-oh-tpl/blur",
   "version": "4.3.2-0.0.6",
   "description": "React Native Blur component",
   "main": "lib/commonjs/index",
