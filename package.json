@@ -7,6 +7,9 @@
   "types": "lib/typescript/index.d.ts",
   "react-native": "src/index",
   "source": "src/index",
+  "harmony": {
+    "alias": "@react-native-community/blur"
+  },
   "files": [
     "src",
     "lib",
@@ -161,5 +164,8 @@
     "android": {
       "javaPackageName": "com.reactnativecommunityblur"
     }
+  },
+  "dependencies": {
+    "@react-native-community/blur": "^4.3.2"
   }
 }

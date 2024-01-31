@@ -26,8 +26,8 @@
 
 #include "RNOH/Package.h"
 #include "ComponentDescriptors.h"
-#include "JSIBinder.h"
-#include "NapiBinder.h"
+#include "BlurJSIBinder.h"
+#include "BlurNapiBinder.h"
 
 namespace rnoh {
 
