@@ -23,15 +23,12 @@
  */
 #pragma once
 
-#include "Props.h"
-#include <react/renderer/components/view/ConcreteViewShadowNode.h>
-#include <jsi/jsi.h>
+#include "ShadowNodes.h"
 #include <react/renderer/core/ConcreteComponentDescriptor.h>
 
 namespace facebook {
 namespace react {
-    JSI_EXPORT extern const char BlurViewComponentName[] = "HarmonyBlurView";
-    using BlurViewShadowNode = ConcreteViewShadowNode<BlurViewComponentName, BlurViewProps>;
+
     using BlurViewComponentDescriptor = ConcreteComponentDescriptor<BlurViewShadowNode>;
 } // namespace react
 } // namespace facebook

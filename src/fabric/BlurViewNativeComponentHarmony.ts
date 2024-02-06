@@ -18,6 +18,6 @@ interface NativeProps extends ViewProps {
   blurAmount?: WithDefault<Int32, 10>;
 }
 
-export default codegenNativeComponent<NativeProps>('HarmonyBlurView', {
+export default codegenNativeComponent<NativeProps>('BlurView', {
   excludedPlatforms: ['android', 'iOS'],
 }) as HostComponent<NativeProps>;

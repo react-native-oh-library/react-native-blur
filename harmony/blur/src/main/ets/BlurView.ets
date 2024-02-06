@@ -27,17 +27,23 @@ import {
   RNOHContext,
   RNViewBase,
   ViewBaseProps,
+  ViewRawProps,
 } from 'rnoh'
 import Logger from './Logger'
 
-export const BLUR_TYPE: string = "HarmonyBlurView"
-const TAG: string = "[RNOH] HarmonyBlurView"
+export const BLUR_TYPE: string = "BlurView"
 
-export interface BlurProps extends ViewBaseProps {
-  blurType:string
-  blurAmount:number
+const TAG: string = "[RNOH] BlurView"
+
+export interface BlurViewState {}
+
+export interface BlurRawProps extends ViewRawProps {
+  blurType: string
+  blurAmount: number
 }
-export type BlurDescriptor = Descriptor<"HarmonyBlurView", BlurProps>
+
+export type BlurDescriptor = Descriptor<"BlurView", ViewBaseProps, BlurViewState, BlurRawProps>
+
 @Component
 export struct BlurView {
   ctx!: RNOHContext
@@ -45,6 +51,7 @@ export struct BlurView {
   @BuilderParam buildCustomComponent: (componentBuilderContext: ComponentBuilderContext) => void
   @State descriptor: BlurDescriptor = {} as BlurDescriptor
   private unregisterDescriptorChangesListener?: () => void = undefined
+
   aboutToAppear() {
     this.descriptor = this.ctx.descriptorRegistry.getDescriptor<BlurDescriptor>(this.tag)
     this.unregisterDescriptorChangesListener = this.ctx.descriptorRegistry.subscribeToDescriptorChanges(this.tag,
@@ -52,27 +59,27 @@ export struct BlurView {
         this.descriptor = (newDescriptor as BlurDescriptor)
       }
     )
-    Logger.debug(TAG, `props ${JSON.stringify(this.descriptor.props)}`)
+    Logger.debug(TAG, `props ${JSON.stringify(this.descriptor.rawProps)} ${this.descriptor.rawProps.blurType}`)
   }
 
   aboutToDisappear() {
     this.unregisterDescriptorChangesListener?.()
   }
 
-  getColorMode(blurType:string):ThemeColorMode {
-    if (blurType.toLowerCase().endsWith('light')){
+  getColorMode(blurType: string): ThemeColorMode {
+    if (blurType.toLowerCase().endsWith('light')) {
       return ThemeColorMode.LIGHT
     }
     return ThemeColorMode.DARK
   }
 
-  getBlurType(blurType:string):BlurStyle {
-    if (blurType.toLowerCase().includes('thin')){
+  getBlurType(blurType: string): BlurStyle {
+    if (blurType.toLowerCase().includes('thin')) {
       return BlurStyle.Thin
-    } else if(blurType.toLowerCase().includes('thick')){
+    } else if (blurType.toLowerCase().includes('thick')) {
       return BlurStyle.Thick
     }
-    return BlurStyle.Regular
+    return BlurStyle.Thin
   }
 
   build() {
@@ -80,10 +87,12 @@ export struct BlurView {
       Column()
         .width('100%')
         .height('100%')
-        .foregroundBlurStyle(this.getBlurType(this.descriptor.props.blurType),
-          { colorMode: this.getColorMode(this.descriptor.props.blurType),
-            adaptiveColor: AdaptiveColor.DEFAULT,
-            scale: this.descriptor.props.blurAmount / 100 })
+        .foregroundBlurStyle(this.getBlurType(this.descriptor.rawProps.blurType),
+        {
+          colorMode: this.getColorMode(this.descriptor.rawProps.blurType),
+          adaptiveColor: AdaptiveColor.DEFAULT,
+          scale: this.descriptor.rawProps.blurAmount / 100
+        })
     }
   }
 }

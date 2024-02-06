@@ -22,35 +22,31 @@
  * SOFTWARE.
  */
 
-#pragma once
+
+#ifndef BLUR_SRC_MAIN_CPP_BLURPACKAGE_H
+#define BLUR_SRC_MAIN_CPP_BLURPACKAGE_H
 
 #include "RNOH/Package.h"
+// #include "RNOHCorePackage/ComponentBinders/ViewComponentJSIBinder.h"
 #include "ComponentDescriptors.h"
 #include "BlurJSIBinder.h"
-#include "BlurNapiBinder.h"
 
-namespace rnoh {
+using namespace rnoh;
+using namespace facebook;
 
-  class BlurPackage : public Package
-  {
-  public:
+class BlurPackage : public Package {
+public:
     BlurPackage(Package::Context ctx) : Package(ctx) {}
 
-    std::vector<facebook::react::ComponentDescriptorProvider> createComponentDescriptorProviders() override
-    {
-        return {
-            facebook::react::concreteComponentDescriptorProvider<facebook::react::BlurViewComponentDescriptor>()
-        };
+    std::vector<facebook::react::ComponentDescriptorProvider> createComponentDescriptorProviders() override {
+        return {facebook::react::concreteComponentDescriptorProvider<facebook::react::BlurViewComponentDescriptor>()};
     }
+//     ComponentJSIBinderByString createComponentJSIBinderByName() override {
+//         return {{"BlurView", std::make_shared<ViewComponentJSIBinder>()}};
+//     };
 
-    ComponentNapiBinderByString createComponentNapiBinderByName() override
-    {
-      return {{"HarmonyBlurView", std::make_shared<BlurNapiBinder>()}};
+    ComponentJSIBinderByString createComponentJSIBinderByName() override {
+        return {{"BlurView", std::make_shared<BlurJSIBinder>()}};
     }
-
-    ComponentJSIBinderByString createComponentJSIBinderByName() override
-    {
-      return {{"HarmonyBlurView", std::make_shared<BlurJSIBinder>()}};
-    }
-  };
-} // namespace rnoh
+};
+#endif
