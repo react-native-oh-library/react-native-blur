@@ -1,6 +1,6 @@
 {
   name: 'rnoh-blur',
-  version: '0.0.1',
+  version: '4.4.0-0.0.1',
   description: 'react-native-blur for HarmonyOS',
   main: 'index.ets',
   author: 'Huawei',
