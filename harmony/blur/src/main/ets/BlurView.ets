@@ -28,7 +28,7 @@ import {
   RNViewBase,
   ViewBaseProps,
   ViewRawProps,
-} from 'rnoh'
+} from '@rnoh/react-native-openharmony'
 import Logger from './Logger'
 
 export const BLUR_TYPE: string = "BlurView"
