@@ -13,17 +13,12 @@
   "files": [
     "src",
     "lib",
-    "android",
     "harmony",
     "harmony/blur.har",
-    "index.d.ts", 
+    "index.d.ts",
     "index.harmony.js",
-    "ios",
     "cpp",
-    "react-native-blur.podspec",
     "!lib/typescript/example",
-    "!android/build",
-    "!ios/build",
     "!**/__tests__",
     "!**/__fixtures__",
     "!**/__mocks__"
@@ -40,9 +35,7 @@
   },
   "keywords": [
     "react-native",
-    "ios",
-    "harmony",
-    "android"
+    "harmony"
   ],
   "repository": {
     "type": "git",
@@ -162,10 +155,7 @@
   "codegenConfig": {
     "name": "rnblurview",
     "type": "components",
-    "jsSrcsDir": "./src/fabric",
-    "android": {
-      "javaPackageName": "com.reactnativecommunityblur"
-    }
+    "jsSrcsDir": "./src/fabric"
   },
   "dependencies": {
     "@react-native-community/blur": "^4.4.0"
