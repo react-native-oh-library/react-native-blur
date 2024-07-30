@@ -152,11 +152,6 @@
       ]
     ]
   },
-  "codegenConfig": {
-    "name": "rnblurview",
-    "type": "components",
-    "jsSrcsDir": "./src/fabric"
-  },
   "dependencies": {
     "@react-native-community/blur": "^4.4.0"
   }
