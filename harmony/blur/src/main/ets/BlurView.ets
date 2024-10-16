@@ -42,6 +42,32 @@ export interface BlurRawProps extends ViewRawProps {
   blurAmount: number
 }
 
+const colorModelTypes: Map<string, BlurStyle> = new Map([
+  ['dark', BlurStyle.BACKGROUND_THICK],
+  ['light', BlurStyle.COMPONENT_THIN],
+  ['thickMaterialDark', BlurStyle.Thick],
+  ['thinMaterialDark', BlurStyle.Thin],
+  ['thickMaterialLight', BlurStyle.Thick],
+  ['thinMaterialLight', BlurStyle.Thin],
+  ['xlight', BlurStyle.COMPONENT_THICK],
+  ['extraDark', BlurStyle.COMPONENT_THICK],
+  ['regular', BlurStyle.Regular],
+  ['ultraThinMaterialDark', BlurStyle.COMPONENT_ULTRA_THIN],
+  ['ultraThinMaterialLight', BlurStyle.COMPONENT_ULTRA_THIN],
+  ['chromeMaterialDark', BlurStyle.COMPONENT_ULTRA_THICK],
+  ['materialDark', BlurStyle.COMPONENT_REGULAR],
+  ['materialLight', BlurStyle.COMPONENT_REGULAR],
+  ['chromeMaterialLight', BlurStyle.COMPONENT_ULTRA_THICK],
+  ['prominent', BlurStyle.Thick],
+  ['chromeMaterial', BlurStyle.COMPONENT_ULTRA_THICK],
+  ['material', BlurStyle.COMPONENT_ULTRA_THICK],
+  ['thickMaterial', BlurStyle.COMPONENT_THICK],
+  ['thinMaterial', BlurStyle.COMPONENT_THIN],
+  ['ultraThinMaterial', BlurStyle.COMPONENT_ULTRA_THIN],
+]);
+
+
+
 export type BlurDescriptor = Descriptor<"BlurView", ViewBaseProps, BlurViewState, BlurRawProps>
 
 @Component
@@ -70,16 +96,15 @@ export struct BlurView {
     if (blurType.toLowerCase().endsWith('light')) {
       return ThemeColorMode.LIGHT
     }
-    return ThemeColorMode.DARK
+    if (blurType.toLowerCase().endsWith('dark')) {
+      return ThemeColorMode.DARK
+    }
+    return ThemeColorMode.SYSTEM
   }
 
+
   getBlurType(blurType: string): BlurStyle {
-    if (blurType.toLowerCase().includes('thin')) {
-      return BlurStyle.Thin
-    } else if (blurType.toLowerCase().includes('thick')) {
-      return BlurStyle.Thick
-    }
-    return BlurStyle.Thin
+    return colorModelTypes.get(blurType) ?? BlurStyle.BACKGROUND_THICK
   }
 
   build() {
