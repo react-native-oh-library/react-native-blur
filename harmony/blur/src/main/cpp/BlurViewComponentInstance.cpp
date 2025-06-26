@@ -17,4 +17,18 @@ void BlurViewComponentInstance::onPropsChanged(SharedConcreteProps const &props)
 }
 
 BlurViewNode &BlurViewComponentInstance::getLocalRootArkUINode() { return m_blurNode; }
+
+void BlurViewComponentInstance::onChildInserted(ComponentInstance::Shared const& childComponentInstance, std::size_t index) {
+    DLOG(INFO) << "BlurViewComponentInstance onChildInserted";
+    m_blurNode.insertChild(childComponentInstance->getLocalRootArkUINode(), index);
+};
+
+void BlurViewComponentInstance::onChildRemoved(ComponentInstance::Shared const& childComponentInstance) {
+    DLOG(INFO) << "BlurViewComponentInstance onChildRemoved";
+    m_blurNode.removeChild(childComponentInstance->getLocalRootArkUINode());
+};
+
+
+
+
 } // namespace rnoh

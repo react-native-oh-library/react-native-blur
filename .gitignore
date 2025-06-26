@@ -67,3 +67,7 @@ android/keystores/debug.keystore
 lib/
 .npmrc
 .vscode
+
+harmony/blur/oh_modules
+harmony/blur/oh-package-lock.json5
+harmony/blur/BuildProfile.ets
