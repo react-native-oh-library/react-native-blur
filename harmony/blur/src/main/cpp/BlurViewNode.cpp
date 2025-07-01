@@ -110,4 +110,13 @@ BlurViewNode &BlurViewNode::setBlurtype(facebook::react::BlurViewBlurType const 
     maybeThrow(NativeNodeApi::getInstance()->setAttribute(m_nodeHandle, NODE_FOREGROUND_BLUR_STYLE, &BlurItem));
     return *this;
 }
+
+
+void BlurViewNode::insertChild(ArkUINode &child, std::size_t index) {
+    maybeThrow(NativeNodeApi::getInstance()->insertChildAt(m_nodeHandle, child.getArkUINodeHandle(), index));
+};
+void BlurViewNode::removeChild(ArkUINode &child) {
+    maybeThrow(NativeNodeApi::getInstance()->removeChild(m_nodeHandle, child.getArkUINodeHandle()));
+};
+
 } // namespace rnoh

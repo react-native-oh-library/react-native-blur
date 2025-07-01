@@ -13,5 +13,7 @@ public:
     BlurViewComponentInstance(Context context);
     void onPropsChanged(SharedConcreteProps const &props) override;
     BlurViewNode &getLocalRootArkUINode() override;
+    void onChildInserted(ComponentInstance::Shared const& childComponentInstance, std::size_t index) override;
+    void onChildRemoved(ComponentInstance::Shared const& childComponentInstance) override;
 };
 } // namespace rnoh
