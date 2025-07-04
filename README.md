@@ -1,6 +1,6 @@
 # @react-native-oh-tpl/blur
 
-This project is based on [@react-native-community/blur](https://github.com/Kureev/react-native-blur)
+This project is based on [@react-native-community/blur@4.4.0](https://github.com/Kureev/react-native-blur/tree/v4.4.0)
 
 ## Documentation
 
